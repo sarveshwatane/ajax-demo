@@ -11,9 +11,10 @@
             var ajax = new XMLHttpRequest();
             ajax.onreadystatechange = function()
             {
+                console.log(this.readyState)
                 if(this.readyState==4 && this.status==200)
                 {
-                    alert(this.responseText);
+                    document.getElementById('finish').innerText=this.responseText
                 }
             }
             ajax.open("GET", "text.txt", true);
@@ -23,6 +24,12 @@
     </script>
 </head>
 <body>
-    <button onclick="ajaxfunction()">Call Ajax</button>
+    <div id="finish">
+        <label for="">name</label>
+        <input type="text">
+        <label for="">password</label>
+        <input type="password">
+        <button onclick="ajaxfunction()">submit</button>
+    </div>
 </body>
 </html>
